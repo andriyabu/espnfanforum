@@ -1,0 +1,5 @@
+<%= bootstrap_form_for @message do |f| %>
+  <%= f.text_field :title, label_class: "text-primary", class:"bg-dark text-white"%>
+  <%= f.text_area :description, label_class: "text-primary", class:"bg-dark text-white", input_html:{:rows => 10}%>
+  <%= f.submit class:"btn btn-success" %>
+<% end %>

@@ -1,3 +1,15 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
-<%= link_to "New", new_message_path, class:"btn btn-primary" %>
+<div class="row w-100 d-flex justify-content-center">
+  <div class="row w-100 d-flex justify-content-center">
+    <h1 class="text-primary">All Message</h1>
+  </div>
+  <% @messages.each do |message| %>
+  <div class="col-md-10 bg-white text-dark p-3 mt-2">
+    <h3 class="text-primary"><%= message.title %></h3>
+    <p><%= message.description %></p>
+    <%= link_to "Show", message_path(message), class:"btn btn-info" %>
+  </div>
+  <% end %>
+  <div class="row w-100 d-flex justify-content-center m-3">
+    <%= link_to "New Message", new_message_path, class:"btn btn-primary" %>
+  </div>
+</div>

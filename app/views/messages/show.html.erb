@@ -1,2 +1,9 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<div class="row w-100 d-flex justify-content-center">
+  <div class="col-md-10 bg-white text-dark p-3">
+    <h1 class="text-primary"><%= @message.title %></h1>
+    <p><%= @message.description %></p>
+    <%= link_to "Home", root_path, class:"btn btn-secondary" %>
+    <%= link_to "Edit", edit_message_path(@message), class:"btn btn-warning" %>
+    <%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+  </div>
+</div>
