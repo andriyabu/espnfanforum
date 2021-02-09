@@ -1,16 +1,20 @@
-<div class="row w-100 d-flex justify-content-center">
+<% if user_signed_in? %>
   <div class="row w-100 d-flex justify-content-center">
-    <h1 class="text-primary">All Message</h1>
+    <div class="row w-100 d-flex justify-content-center">
+      <h1 class="text-white">All Post</h1>
+    </div>
+    <% @messages.each do |message| %>
+    <div class="col-md-10 bg-white text-dark p-3 mt-2">
+      <h3 class="text-primary"><%= message.title %></h3>
+      <p class="badge badge-success"><%= time_ago_in_words(message.created_at) %> ago</p>
+      <p><%= truncate(strip_tags(message.description.to_s), length: 200) %></p>
+      <%= link_to "Join Now", message_path(message), class:"btn btn-primary" %>
+    </div>
+    <% end %>
+    <div class="row w-100 d-flex justify-content-center m-3">
+      <%= link_to "New Post", new_message_path, class:"btn btn-primary" %>
+    </div>
   </div>
-  <% @messages.each do |message| %>
-  <div class="col-md-10 bg-white text-dark p-3 mt-2">
-    <h3 class="text-primary"><%= message.title %></h3>
-    <p class="badge badge-primary"><%= time_ago_in_words(message.created_at) %> ago</p>
-    <p><%= truncate(strip_tags(message.description.to_s), length: 200) %></p>
-    <%= link_to "Join Now", message_path(message), class:"btn btn-info" %>
-  </div>
-  <% end %>
-  <div class="row w-100 d-flex justify-content-center m-3">
-    <%= link_to "New Message", new_message_path, class:"btn btn-primary" %>
-  </div>
-</div>
+<% else %>
+  <%= render "welcome" %>
+<% end %>
