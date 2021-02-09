@@ -1,0 +1,9 @@
+<div class="row w-100 d-flex justify-content-center mt-5">
+  <div class="col-md-8 comment  p-3">
+    <h1 class="text-primary">Edit Comment</h1>
+    <%= bootstrap_form_for ([@message, @comment]) do |f| %>
+      <%= f.text_area :content, label: "Your Comment",label_class:"text-primary", class:"bg-dark text-white" %>
+      <%= f.submit "Update Comment", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

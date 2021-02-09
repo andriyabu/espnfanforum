@@ -1,4 +1,11 @@
-<div class="col w-100 comment p-3">
+<div class="col w-100 comment p-3 mb-2">
   <p class="text-dark"><%= comment.content %></p>
   <p class="badge badge-success">Post by : <%= comment.user.email  %> - <%= time_ago_in_words(comment.created_at) %></p>
+  <% if comment.user_id == current_user.id %>
+    <div>
+      <%= link_to "Edit", edit_message_comment_path(comment.message, comment), class:"btn btn-sm btn-warning" %>
+      <%= link_to "Delete", message_comment_path(comment.message, comment), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-sm btn-danger" %>
+    </div>
+  <% end %>
+
 </div>
