@@ -5,8 +5,9 @@
   <% @messages.each do |message| %>
   <div class="col-md-10 bg-white text-dark p-3 mt-2">
     <h3 class="text-primary"><%= message.title %></h3>
-    <p><%= message.description %></p>
-    <%= link_to "Show", message_path(message), class:"btn btn-info" %>
+    <p class="badge badge-primary"><%= time_ago_in_words(message.created_at) %> ago</p>
+    <p><%= truncate(strip_tags(message.description.to_s), length: 200) %></p>
+    <%= link_to "Join Now", message_path(message), class:"btn btn-info" %>
   </div>
   <% end %>
   <div class="row w-100 d-flex justify-content-center m-3">

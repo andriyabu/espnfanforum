@@ -1,6 +1,7 @@
 <div class="row w-100 d-flex justify-content-center">
   <div class="col-md-10 bg-white text-dark p-3">
     <h1 class="text-primary"><%= @message.title %></h1>
+    <p class="badge badge-primary"><%= time_ago_in_words(@message.created_at) %> ago</p>
     <p><%= @message.description %></p>
     <%= link_to "Home", root_path, class:"btn btn-secondary" %>
     <%= link_to "Edit", edit_message_path(@message), class:"btn btn-warning" %>
