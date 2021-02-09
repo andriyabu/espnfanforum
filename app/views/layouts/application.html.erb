@@ -14,13 +14,15 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <div class="nav navbar-nav navbar-left">
+          <div class="nav navbar-nav">
             <div class="navbar-header mr-5">
               <%= link_to "ESPN", root_path, class:"navbar-brand" %>
             </div>
-            <% if user_signed_in? %>
-              <%= link_to "New Post", new_message_path, class: "btn btn-sm btn-primary" %>
-            <% end %>
+            <div class="navbar-item p-1">
+              <% if user_signed_in? %>
+                <%= link_to "New Post", new_message_path, class: "btn btn-sm btn-primary" %>
+              <% end %>
+            </div>
           </div>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
